@@ -9,6 +9,7 @@
     using System.Web.OData.Extensions;
     using Microsoft.Owin.Security.OAuth;
     using Newtonsoft.Json.Serialization;
+    using System.Web.Http.Cors;
 
     public static class WebApiConfig
     {
@@ -21,7 +22,9 @@
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-            config.EnableCors();
+
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             config.AddODataQueryFilter();
 
             config.Routes.MapHttpRoute(
