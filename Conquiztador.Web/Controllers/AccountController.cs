@@ -17,6 +17,7 @@ using Conquiztador.Web.Models;
 using Conquiztador.Web.Providers;
 using Conquiztador.Web.Results;
 using GameDb.Models;
+using System.Web.Http.Cors;
 
 namespace Conquiztador.Web.Controllers
 {
@@ -322,7 +323,7 @@ namespace Conquiztador.Web.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<IHttpActionResult> Register([FromBody]RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
             {

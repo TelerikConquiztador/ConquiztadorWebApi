@@ -16,6 +16,6 @@ using System.Threading.Tasks;
             return userIdentity;
         }
 
-        public int Result { get; set; }
+        public int? Result { get; set; }
     }
 }
