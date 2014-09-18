@@ -17,17 +17,17 @@
 
             using (db)
             {
-                IUserRepository usersAdding = new UserRepository(db);
-                var users = new List<User>();
-                var fileContent = File.ReadAllText(@"..\..\Users.json");
-                var currentUsers = JsonConvert.DeserializeObject<IEnumerable<User>>(fileContent);
-                usersAdding.InsertAll(currentUsers);
+                //IUserRepository usersAdding = new UserRepository(db);
+                //var users = new List<User>();
+                //var fileContent = File.ReadAllText(@"..\..\Users.json");
+                //var currentUsers = JsonConvert.DeserializeObject<IEnumerable<User>>(fileContent);
+                //usersAdding.InsertAll(currentUsers);
 
-                IOpenQuestionRepository openQuestionsAdding = new OpenQuestionRepository(db);
-                var openQuestions = new List<OpenQuestion>();
-                var fileContentOpenQuestions = File.ReadAllText(@"..\..\OpenQuestions.json");
-                var currentOpenQuestions = JsonConvert.DeserializeObject<IEnumerable<OpenQuestion>>(fileContentOpenQuestions);
-                openQuestionsAdding.InsertAll(currentOpenQuestions);
+                //IOpenQuestionRepository openQuestionsAdding = new OpenQuestionRepository(db);
+                //var openQuestions = new List<OpenQuestion>();
+                //var fileContentOpenQuestions = File.ReadAllText(@"..\..\OpenQuestions.json");
+                //var currentOpenQuestions = JsonConvert.DeserializeObject<IEnumerable<OpenQuestion>>(fileContentOpenQuestions);
+                //openQuestionsAdding.InsertAll(currentOpenQuestions);
 
                 IClosedQuestionRepository closedQuestionsAdding = new ClosedQuestionRepository(db);
                 var closedQuestions = new List<ClosedQuestion>();

@@ -8,6 +8,15 @@
     using System.Web;
     using System.Web.Http;
 
+    using Antlr.Runtime.Tree;
+
+    //  using AutoMapper.QueryableExtensions;
+
+    using Microsoft.AspNet.Identity;
+    using GameDb.Models;
+    using System;
+    using Conquiztador.Web.DataModels;
+
     public class PlayersController : ApiController
     {
         private readonly IGameData data;
@@ -30,18 +39,28 @@
             return Ok(topUsers);
         }
 
+        [Authorize]
         [HttpPut]
-        public IHttpActionResult Update(string id, int score)
+        public IHttpActionResult Update(int score)
         {
             if (!this.ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = this.data.Users.All().FirstOrDefault(u => u.Id == id);
+            var userId = User.Identity.GetUserId();
+
+            var user = this.data.Users.All().FirstOrDefault(u => u.Id == userId);
             if (user == null)
             {
                 return BadRequest("Such user does not exists!");
+            }
+
+            if (user.BestScore == null)
+            {
+                user.BestScore = 0;
+                user.Games = 1;
+                this.data.SaveChanges();
             }
 
             if (user.BestScore < score)
