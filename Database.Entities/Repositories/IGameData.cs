@@ -10,6 +10,8 @@
 
         IRepository<ClosedQuestion> ClosedQuestions { get; }
 
+        IRepository<Game> Games { get; }
+
         void SaveChanges();
     }
 }

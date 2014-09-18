@@ -1,24 +1,22 @@
 ﻿namespace GameDb.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public class Game
     {
-        private const int ROWS = 4;
-        private const int COLS = 6;
-
         public Game()
         {
             this.Id = Guid.NewGuid();
-            this.Map = new byte[ROWS, COLS];
+            this.Map = "000000\n00000\n0000\n000\n";
             this.State = GameState.WaitingForSecondPlayer;
         }
 
         [Key]
         public Guid Id { get; set; }
 
-        public byte[,] Map { get; set; }
+        public string Map { get; set; }
 
         public GameState State { get; set; }
 

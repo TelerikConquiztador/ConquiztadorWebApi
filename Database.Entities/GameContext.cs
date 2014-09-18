@@ -18,10 +18,11 @@
             return new GameContext();
         }
 
-        public DbSet<ClosedQuestion> ClosedQuestions { get; set; }
+        public IDbSet<ClosedQuestion> ClosedQuestions { get; set; }
 
-        public DbSet<OpenQuestion> OpenQuestions { get; set; }
+        public IDbSet<OpenQuestion> OpenQuestions { get; set; }
 
+        public IDbSet<Game> Games { get; set; }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
         {

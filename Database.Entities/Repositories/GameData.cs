@@ -44,6 +44,15 @@
             }
         }
 
+        public IRepository<Game> Games
+        {
+            get
+            {
+                return this.GetRepository<Game>();
+            }
+        }
+
+
         public void SaveChanges()
         {
             this.context.SaveChanges();

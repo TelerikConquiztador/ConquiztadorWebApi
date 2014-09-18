@@ -6,9 +6,11 @@
 
     public interface IGameContext
     {
-        DbSet<ClosedQuestion> ClosedQuestions { get; set; }
+        IDbSet<ClosedQuestion> ClosedQuestions { get; set; }
 
-        DbSet<OpenQuestion> OpenQuestions { get; set; }
+        IDbSet<OpenQuestion> OpenQuestions { get; set; }
+
+        IDbSet<Game> Games { get; set; }
 
         void SaveChanges();
 

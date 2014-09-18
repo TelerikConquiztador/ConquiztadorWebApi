@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
+    <Compile Include="GameArea.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="User.cs" />
     <Compile Include="ClosedQuestion.cs" />
