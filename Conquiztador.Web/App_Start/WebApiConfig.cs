@@ -23,7 +23,8 @@
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.EnableCors();
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             config.AddODataQueryFilter();
 
             config.Routes.MapHttpRoute(
