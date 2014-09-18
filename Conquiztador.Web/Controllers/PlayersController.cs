@@ -29,5 +29,28 @@
 
             return Ok(topUsers);
         }
+
+        [HttpPut]
+        public IHttpActionResult Update(string id, int score)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = this.data.Users.All().FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return BadRequest("Such user does not exists!");
+            }
+
+            if (user.BestScore < score)
+            {
+                user.BestScore = score;
+                this.data.SaveChanges();
+            }
+
+            return Ok(user);
+        }
     }
 }
