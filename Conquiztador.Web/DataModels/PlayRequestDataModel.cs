@@ -7,10 +7,6 @@
         [Required]
         public string GameId { get; set; }
 
-        [Range(1, 3)]
-        public int Row { get; set; }
-
-        [Range(1, 3)]
-        public int Col { get; set; }
+        public int Answer { get; set; }
     }
 }

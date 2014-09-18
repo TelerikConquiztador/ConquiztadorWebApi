@@ -224,6 +224,7 @@
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OpenQuestionsController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="DataModels\GameModel.cs" />
     <Compile Include="DataModels\PlayRequestDataModel.cs" />
     <Compile Include="Global.asax.cs">
@@ -297,6 +298,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Game\" />
+    <Folder Include="Views\Players\" />
     <Folder Include="Views\PlayRequestData\" />
   </ItemGroup>
   <ItemGroup>

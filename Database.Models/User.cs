@@ -1,13 +1,20 @@
 ﻿namespace GameDb.Models
 {
     using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System.Collections.Generic;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
 
     public class User : IdentityUser
     {
+        private ICollection<Game> games;
+
+        public User()
+        {
+            this.games = new HashSet<Game>();
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -16,6 +23,19 @@ using System.Threading.Tasks;
             return userIdentity;
         }
 
-        public int? Result { get; set; }
+        public ICollection<Game> Games
+        {
+            get
+            {
+                return this.games;
+            }
+
+            set
+            {
+                this.games = value;
+            }
+        }
+
+        public int? BestScore { get; set; }
     }
 }

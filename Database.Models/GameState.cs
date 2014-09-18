@@ -3,11 +3,12 @@
     public enum GameState
     {
         WaitingForSecondPlayer = 0,
-        RedChoose = 1,
-        GreenChoose = 2,
-        OpenQuestion = 3,
-        ClosedQuestion = 4,
-        GameWonByRed = 5,
-        GameWonByGreen = 6
+        NotAnswered = 1,
+        RedAnswered = 2,
+        GreenAnswered = 3,
+        OpenQuestion = 4,
+        ClosedQuestion = 5,
+        GameWonByRed = 6,
+        GameWonByGreen = 7
     }
 }

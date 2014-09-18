@@ -50,7 +50,7 @@
             if (context.Users.Any(x => x.UserName == name))
             {
                 var user = context.Users.Find(name);
-                user.Result = result;
+                user.BestScore = result;
                 Save();
                 return true;
             }

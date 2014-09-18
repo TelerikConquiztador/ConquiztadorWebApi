@@ -15,22 +15,16 @@
                 return g => new GameModel
                 {
                     Id = g.Id,
-                    RedPlayerName = g.RedPlayer.UserName,
-                    GreenPlayerName = g.GreenPlayer.UserName,
-                    Map = g.Map,
-                    State = g.State.ToString()
+                    PlayerName = g.Player.UserName,
+                    Map = g.Map
                 };
             }
         }
 
         public Guid Id { get; set; }
 
-        public string RedPlayerName { get; set; }
-
-        public string GreenPlayerName { get; set; }
+        public string PlayerName { get; set; }
 
         public string Map { get; set; }
-
-        public string State { get; set; }
     }
 }
