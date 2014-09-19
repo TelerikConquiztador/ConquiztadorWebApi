@@ -69,13 +69,8 @@
             }
 
             user.Games++;
+            user.BestScore += userRequest.Score;
             this.data.SaveChanges();
-
-            if (user.BestScore < userRequest.Score)
-            {
-                user.BestScore = userRequest.Score;
-                this.data.SaveChanges();
-            }
             
             return Ok(user);
         }
