@@ -36,7 +36,7 @@
         {
             var topUsers = this.data.Users.All()
                 .Select(UserModel.FromUser)
-                .OrderBy(u => u.BestScore)
+                .OrderByDescending(u => u.BestScore)
                 .Take(10)
                 .ToArray();
 
