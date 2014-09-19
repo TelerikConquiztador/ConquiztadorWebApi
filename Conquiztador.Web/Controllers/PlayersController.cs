@@ -54,7 +54,6 @@
 
             var user = this.data.Users.All()
                 .Where(u => u.UserName == userRequest.UserName)
-                .Select(UserModel.FromUser)
                 .FirstOrDefault();
 
             if (user == null)
@@ -77,7 +76,7 @@
                 user.BestScore = userRequest.Score;
                 this.data.SaveChanges();
             }
-
+            
             return Ok(user);
         }
     }
