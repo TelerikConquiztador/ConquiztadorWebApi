@@ -34,7 +34,11 @@
         [HttpGet]
         public IHttpActionResult HighScore()
         {
-            var topUsers = this.data.Users.All().OrderBy(u => u.BestScore).Take(10);
+            var topUsers = this.data.Users.All()
+                .Select(UserModel.FromUser)
+                .OrderBy(u => u.BestScore)
+                .Take(10)
+                .ToArray();
 
             return Ok(topUsers);
         }
@@ -50,7 +54,11 @@
 
             var userId = User.Identity.GetUserId();
 
-            var user = this.data.Users.All().FirstOrDefault(u => u.Id == userId);
+            var user = this.data.Users.All()
+                 .Where(u => u.Id == userId)
+                 .Select(UserModel.FromUser)
+                 .FirstOrDefault();
+
             if (user == null)
             {
                 return BadRequest("Such user does not exists!");
@@ -59,9 +67,12 @@
             if (user.BestScore == null)
             {
                 user.BestScore = 0;
-                user.Games = 1;
+                user.Games = 0;
                 this.data.SaveChanges();
             }
+
+            user.Games++;
+            this.data.SaveChanges();
 
             if (user.BestScore < score)
             {

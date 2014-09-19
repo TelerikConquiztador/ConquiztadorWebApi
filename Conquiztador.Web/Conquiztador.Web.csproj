@@ -227,6 +227,7 @@
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="DataModels\GameModel.cs" />
     <Compile Include="DataModels\PlayRequestDataModel.cs" />
+    <Compile Include="DataModels\UserModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
