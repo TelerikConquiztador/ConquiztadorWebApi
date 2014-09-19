@@ -5,8 +5,8 @@
     public class PlayRequestDataModel
     {
         [Required]
-        public string GameId { get; set; }
+        public string UserName { get; set; }
 
-        public int Answer { get; set; }
+        public int Score { get; set; }
     }
 }

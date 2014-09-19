@@ -43,21 +43,19 @@
             return Ok(topUsers);
         }
 
-        [Authorize]
-        [HttpPut]
-        public IHttpActionResult Update(int score)
+        [HttpPost]
+        [Route("api/UpdateScore")]
+        public IHttpActionResult Update([FromBody]PlayRequestDataModel userRequest)
         {
             if (!this.ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var userId = User.Identity.GetUserId();
-
             var user = this.data.Users.All()
-                 .Where(u => u.Id == userId)
-                 .Select(UserModel.FromUser)
-                 .FirstOrDefault();
+                .Where(u => u.UserName == userRequest.UserName)
+                .Select(UserModel.FromUser)
+                .FirstOrDefault();
 
             if (user == null)
             {
@@ -74,9 +72,9 @@
             user.Games++;
             this.data.SaveChanges();
 
-            if (user.BestScore < score)
+            if (user.BestScore < userRequest.Score)
             {
-                user.BestScore = score;
+                user.BestScore = userRequest.Score;
                 this.data.SaveChanges();
             }
 
